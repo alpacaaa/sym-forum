@@ -36,7 +36,37 @@
 		<li>
 			<a href="{$root}/forum/forum-filter/" title="Filter discussions">My Discussions</a>
 		</li>
+		<li>
+			<a href="{$root}/forum/bookmarked-discussions" title="Filter discussions">Bookmarked Discussions</a>
+		</li>
 	</ul>
+	<h3>Actions</h3>
+	<xsl:variable name="bookmark" select="/data/member-discussion-bookmark/entry" />
+	
+	<form method="post">
+		<xsl:if test="$bookmark">
+			<input type="hidden" value="{$bookmark/@id}" name="id" />
+		</xsl:if>
+		<input type="hidden" value="{/data/forum-discussions/entry/@id}" name="fields[discussion] "/>
+		<input type="hidden" value="{$cookie-member-id}" name="fields[member]" />
+		<input type="hidden" name="fields[visible]">
+			<xsl:attribute name="value">
+				<xsl:choose>
+					<xsl:when test="$bookmark/visible = 'Yes'">No</xsl:when>
+					<xsl:otherwise>Yes</xsl:otherwise>
+				</xsl:choose>
+			</xsl:attribute>
+		</input>
+
+		<input type="submit" class="button" name="action[save-bookmark]">
+			<xsl:attribute name="value">
+				<xsl:choose>
+					<xsl:when test="$bookmark/visible = 'Yes'">Remove Bookmark</xsl:when>
+					<xsl:otherwise>Bookmark this Discussion</xsl:otherwise>
+				</xsl:choose>
+			</xsl:attribute>
+		</input>
+	</form>
 </xsl:template>
 
 <!-- Main comments template -->

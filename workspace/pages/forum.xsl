@@ -58,6 +58,9 @@
 			<li>
 				<a href="{$root}/forum/forum-filter/" title="Filter discussions">My Discussions</a>
 			</li>
+			<li>
+			<a href="{$root}/forum/bookmarked-discussions" title="Filter discussions">Bookmarked Discussions</a>
+		</li>
 		</ul>
 	</xsl:if>
 </xsl:template>
