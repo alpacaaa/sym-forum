@@ -30,7 +30,7 @@
 	url = git://github.com/pointybeard/numberfield.git
 [submodule "extensions/forum"]
 	path = extensions/forum
-	url = git://github.com/bauhouse/forum.git
+	url = git://github.com/alpacaaa/forum.git
 [submodule "extensions/library"]
 	path = extensions/library
 	url = git://github.com/bauhouse/library.git
